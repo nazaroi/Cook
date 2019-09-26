@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sample.cook.HomeFragment"
+        android:name="com.sample.cook.RecipeListFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_recipe_list" />
     <fragment
         android:id="@+id/addFragment"
         android:name="com.sample.cook.AddFragment"
@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_favorite" />
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.sample.cook.RecipeFragment"
+        android:name="com.sample.cook.RecipeDetailFragment"
         android:label="fragment_recipe"
-        tools:layout="@layout/fragment_recipe" />
+        tools:layout="@layout/fragment_recipe_detail" />
 </navigation>
