@@ -4,30 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
-
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sample.cook.RecipeListFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_recipe_list" />
+        android:name="com.sample.cook.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/addFragment"
-        android:name="com.sample.cook.AddFragment"
-        android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.sample.cook.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.sample.cook.FavoriteFragment"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
-    <fragment
-        android:id="@+id/recipeFragment"
+        android:id="@+id/recipeDetailFragment"
         android:name="com.sample.cook.RecipeDetailFragment"
-        android:label="fragment_recipe"
-        tools:layout="@layout/fragment_recipe_detail" />
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" >
+        <argument
+            android:name="recipe_id"
+            app:argType="string" />
+    </fragment>
 </navigation>

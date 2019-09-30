@@ -3,7 +3,7 @@ package com.sample.cook.utilities
 import android.content.Context
 import com.sample.cook.data.AppDatabase
 import com.sample.cook.data.RecipeRepository
-import com.sample.cook.viewmodels.RecipeListViewModelFactory
+import com.sample.cook.viewmodels.RecipesViewModelFactory
 
 object InjectorUtils {
 
@@ -11,8 +11,8 @@ object InjectorUtils {
         return RecipeRepository.getInstance(AppDatabase.getInstance(context.applicationContext).recipeDao())
     }
 
-    fun provideRecipeListViewModelFactory(context: Context): RecipeListViewModelFactory {
+    fun provideRecipeListViewModelFactory(context: Context): RecipesViewModelFactory {
         val repository = getRecipeRepository(context)
-        return RecipeListViewModelFactory(repository)
+        return RecipesViewModelFactory(repository)
     }
 }

@@ -6,7 +6,7 @@
         android:title="@null" />
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_favorite"
+        android:icon="@drawable/ic_heart"
         android:title="@null" />
     <item
         android:id="@+id/action_settings"

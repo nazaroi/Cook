@@ -5,7 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.sample.cook.utilities.DATABASE_NAME
+import com.sample.cook.workers.CookDatabaseWorker
+import timber.log.Timber
 
 @Database(entities = [Recipe::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
@@ -15,7 +19,7 @@ abstract class AppDatabase : RoomDatabase() {
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
-            return instance ?: buildDatabase(context)
+            return instance ?: buildDatabase(context).also { instance = it }
         }
 
         // The context for the database is usually the Application context.
@@ -23,7 +27,13 @@ abstract class AppDatabase : RoomDatabase() {
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
+                        Timber.e("onCreate")
+                        val request = OneTimeWorkRequestBuilder<CookDatabaseWorker>().build()
+                        WorkManager.getInstance(context).enqueue(request)
+                    }
 
+                    override fun onOpen(db: SupportSQLiteDatabase) {
+                        Timber.e("onOpen")
                     }
                 }).build()
         }

@@ -5,14 +5,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.sample.cook.data.RecipeRepository
 
 /**
- * Factory for creating a [RecipeListViewModel] with a constructor that takes a
+ * Factory for creating a [RecipesViewModel] with a constructor that takes a
  * [RecipeRepository].
  */
-class RecipeListViewModelFactory(private val repository: RecipeRepository) :
+class RecipesViewModelFactory(private val repository: RecipeRepository) :
     ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return RecipeListViewModelFactory(repository) as T
+        return RecipesViewModel(repository) as T
     }
 }

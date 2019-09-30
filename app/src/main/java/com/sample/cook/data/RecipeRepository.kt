@@ -14,6 +14,6 @@ class RecipeRepository private constructor(private val recipeDao: RecipeDao) {
         private var instance: RecipeRepository? = null
 
         fun getInstance(recipeDao: RecipeDao) =
-            instance ?: RecipeRepository(recipeDao)
+            instance ?: RecipeRepository(recipeDao).also { instance = it }
     }
 }
