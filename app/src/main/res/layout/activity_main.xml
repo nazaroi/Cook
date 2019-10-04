@@ -33,6 +33,7 @@
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="@dimen/bottom_navigation_height"
+        android:background="@android:color/transparent"
         app:itemIconTint="@color/bottom_navigation_colors"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"

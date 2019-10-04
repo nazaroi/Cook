@@ -3,4 +3,6 @@
     <dimen name="bottom_navigation_height">48dp</dimen>
     <dimen name="item_recipe_height">148dp</dimen>
     <dimen name="cook_app_stroke">2dp</dimen>
+    <dimen name="load_image_size">148dp</dimen>
+    <dimen name="recipe_load_image_height">128dp</dimen>
 </resources>

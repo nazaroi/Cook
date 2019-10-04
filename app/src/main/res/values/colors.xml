@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#7E56C1</color>
     <color name="colorPrimaryDark">#4D2B90</color>
     <color name="colorPrimaryLight">#B084F4</color>
 
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#1976d2</color>
 
     <color name="white_alpha_33">#54FFFFFF</color>
     <color name="white_alpha_50">#80FFFFFF</color>
+
+    <!-- change TextInputLayout border color when unfocused -->
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">
+        @color/colorPrimaryDark
+    </color>
+
 </resources>

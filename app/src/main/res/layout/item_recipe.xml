@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_recipe_height"
         android:layout_marginLeft="@dimen/margin_normal"
-        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:layout_marginRight="@dimen/margin_normal"
         android:onClick="@{clickListener}">
 
@@ -66,7 +66,7 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:layout_marginRight="@dimen/margin_small"
-            android:background="@drawable/item_recipe_remove_background"
+            android:background="@drawable/round_cook_background"
             android:contentDescription="@null"
             android:padding="@dimen/padding_small"
             android:tint="@android:color/white"

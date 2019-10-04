@@ -1,6 +1,5 @@
 package com.sample.cook
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +11,13 @@ import androidx.lifecycle.observe
 import com.sample.cook.adapters.RecipeAdapter
 import com.sample.cook.databinding.FragmentRecipeListBinding
 import com.sample.cook.utilities.InjectorUtils
-import com.sample.cook.viewmodels.RecipesViewModel
+import com.sample.cook.viewmodels.RecipesTypeViewModel
 
 class RecipeListFragment : Fragment() {
 
-    private val viewModel: RecipesViewModel by viewModels {
-        InjectorUtils.provideRecipeListViewModelFactory(requireContext())
+    private val viewModel: RecipesTypeViewModel by viewModels {
+        val type = arguments?.get("type") as String
+        InjectorUtils.provideRecipesTypeViewModelFactory(requireContext(), type)
     }
 
     override fun onCreateView(
@@ -39,7 +39,7 @@ class RecipeListFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: RecipeAdapter, binding: FragmentRecipeListBinding) {
-        viewModel.recipes.observe(viewLifecycleOwner) { list ->
+        viewModel.typeRecipes.observe(viewLifecycleOwner) { list ->
             if (!list.isNullOrEmpty()) adapter.submitList(list)
         }
     }
@@ -47,7 +47,7 @@ class RecipeListFragment : Fragment() {
     companion object {
         fun newInstance(type: String): RecipeListFragment {
             return RecipeListFragment().apply {
-                arguments = bundleOf("recipe_type" to type)
+                arguments = bundleOf("type" to type)
             }
         }
     }

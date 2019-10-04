@@ -2,7 +2,8 @@
 <resources>
     <dimen name="app_bar_height">56dp</dimen>
     <dimen name="bottom_bar_height">48dp</dimen>
-    <dimen name="tab_layout_height">32dp</dimen>
+    <dimen name="tab_layout_height">36dp</dimen>
+    <dimen name="tab_radius">18dp</dimen>
 
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_normal">16dp</dimen>
@@ -18,5 +19,14 @@
     <dimen name="text_size_18sp">18sp</dimen>
     <dimen name="text_size_22sp">22sp</dimen>
     <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
+
     <dimen name="default_icon_size">24dp</dimen>
+
+    <dimen name="alpha_060">0.60</dimen>
+    <dimen name="alpha_038">0.38</dimen>
+    <item name="alpha_087" type="dimen" format="float">0.87</item>
+
+    <dimen name="elevation_normal">8dp</dimen>
+
 </resources>

@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="String" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".AddFragment">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:fontFamily="@font/khula"
+                android:text="@string/add_new_recipe"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_28sp" />
+
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recipe_load_image_height"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:alpha="0.87"
+                android:background="@drawable/recipe_load_image_background"
+                android:contentDescription="@null"
+                android:padding="36dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/colorPrimaryDark"
+                app:srcCompat="@drawable/ic_photo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/App.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:hint="@string/recipe_title"
+                app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/khula_semibold"
+                    android:inputType="textPersonName"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/App.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:hint="@string/recipe_description"
+                app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
+
+                <!-- fontFamily, textSize for for hint when unfocused and typed text -->
+                <!-- textColor for typed text -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/khula_semibold"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_new_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:fontFamily="@font/khula_semibold"
+                android:paddingTop="@dimen/padding_small"
+                android:paddingBottom="@dimen/padding_small"
+                android:text="@string/create_new_recipe"
+                android:textSize="@dimen/text_size_18sp"
+                app:backgroundTint="@color/colorPrimaryDark"
+                app:strokeColor="@android:color/white"
+                app:strokeWidth="@dimen/cook_app_stroke" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

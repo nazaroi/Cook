@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sample.cook.databinding.FragmentHomeBinding
-import com.sample.cook.utilities.InjectorUtils
-import com.sample.cook.viewmodels.RecipesViewModel
 
 class HomeFragment : Fragment() {
 
@@ -20,17 +18,20 @@ class HomeFragment : Fragment() {
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val viewPager = binding.fragmentRecipeViewPager.apply {
+        val viewPager = binding.homeViewPager.apply {
             adapter = HomePagerAdapter(childFragmentManager)
         }
 
-        binding.fragmentRecipeTabLayout.setupWithViewPager(viewPager)
+        binding.homeTabLayout.setupWithViewPager(viewPager)
 
+        binding.homeFloatingActionButton.setOnClickListener {
+            val direction = HomeFragmentDirections.actionHomeFragmentToAddFragment()
+            findNavController().navigate(direction)
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
     }
 }
 

@@ -2,9 +2,8 @@ package com.sample.cook
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sample.cook.data.AppDatabase
-import org.jetbrains.anko.doAsync
 import timber.log.Timber
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,5 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Timber.plant(Timber.DebugTree());
+
     }
 }
