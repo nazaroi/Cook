@@ -1,5 +1,6 @@
 <resources>
 
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -17,7 +18,7 @@
     <style name="App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- applied when TextInputLayout is focused -->
         <item name="boxStrokeColor">@android:color/white</item>
-        <item name="boxStrokeWidth">@dimen/cook_app_stroke</item>
+        <item name="boxStrokeWidth">@dimen/stroke_size_normal</item>
 
         <!-- applied when hint is not focused -->
         <item name="android:textColorHint">@color/colorPrimaryDark</item>

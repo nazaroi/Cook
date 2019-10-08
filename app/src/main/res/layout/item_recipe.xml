@@ -18,27 +18,25 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_recipe_height"
         android:layout_marginLeft="@dimen/margin_normal"
-        android:layout_marginBottom="@dimen/margin_normal"
         android:layout_marginRight="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_normal"
         android:onClick="@{clickListener}">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:cardElevation="0dp"
-            app:contentPadding="@dimen/cook_app_stroke"
+            app:contentPadding="@dimen/stroke_size_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop"
-                app:imageFromUrl="@{recipe.imageUrl}"
+                app:imageFromUrl="@{recipe.imageUri}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
         </androidx.cardview.widget.CardView>
 
@@ -46,9 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginLeft="@dimen/margin_normal"
             android:layout_marginBottom="@dimen/margin_normal"
-            android:background="@drawable/item_recipe_text_background"
+            android:background="@drawable/bg_recipe_item_text"
             android:fontFamily="@font/khula_semibold"
             android:paddingLeft="@dimen/padding_normal"
             android:paddingTop="@dimen/padding_small"
@@ -61,16 +58,15 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:layout_width="@dimen/default_icon_size"
-            android:layout_height="@dimen/default_icon_size"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
-            android:layout_marginRight="@dimen/margin_small"
-            android:background="@drawable/round_cook_background"
+            android:background="@drawable/bg_recipe_remove"
             android:contentDescription="@null"
             android:padding="@dimen/padding_small"
             android:tint="@android:color/white"
-            app:isGone="@{!recipe.isMyRecipe}"
+            app:isGone='@{!recipe.name.equals("my_recipes")}'
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_minus" />

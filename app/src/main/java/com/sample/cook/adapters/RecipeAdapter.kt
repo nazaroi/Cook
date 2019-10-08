@@ -29,7 +29,7 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(Recipe
 
     private fun createOnClickListener(recipeId: String): View.OnClickListener {
         return View.OnClickListener {
-            val direction = HomeFragmentDirections.actionHomeFragmentToRecipeDetailFragment(recipeId)
+            val direction = HomeFragmentDirections.actionNavigationHomeToRecipeDetailFragment(recipeId)
             it.findNavController().navigate(direction)
         }
     }

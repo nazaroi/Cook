@@ -11,6 +11,8 @@ class RecipeRepository private constructor(private val recipeDao: RecipeDao) {
 
     fun getRecipe(recipeId: String) = recipeDao.getRecipe(recipeId)
 
+    fun insert(recipe: Recipe) = recipeDao.insert(recipe)
+
     companion object {
 
         private var instance: RecipeRepository? = null

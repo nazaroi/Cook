@@ -9,7 +9,6 @@ data class Recipe(
     @PrimaryKey @SerializedName("recipeId") val id: String,
     val name: String,
     val description: String,
-    val imageUrl: String,
-    val type: String,
-    val isMyRecipe: Boolean = false
+    @SerializedName("imageUrl") val imageUri: String?,
+    val type: String
 )

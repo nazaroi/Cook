@@ -3,6 +3,6 @@
     android:shape="oval">
     <solid android:color="@color/colorPrimaryDark" />
     <stroke
-        android:width="@dimen/cook_app_stroke"
+        android:width="@dimen/stroke_size_normal"
         android:color="@android:color/white" />
 </shape>

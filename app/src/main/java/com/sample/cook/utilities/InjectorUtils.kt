@@ -4,7 +4,7 @@ import android.content.Context
 import com.sample.cook.data.AppDatabase
 import com.sample.cook.data.RecipeRepository
 import com.sample.cook.viewmodels.RecipesTypeViewModelFactory
-import com.sample.cook.viewmodels.RecipesViewModelFactory
+import com.sample.cook.viewmodels.RecipeCreateViewModelFactory
 
 object InjectorUtils {
 
@@ -12,9 +12,9 @@ object InjectorUtils {
         return RecipeRepository.getInstance(AppDatabase.getInstance(context.applicationContext).recipeDao())
     }
 
-    fun provideRecipesViewModelFactory(context: Context): RecipesViewModelFactory {
+    fun provideRecipeCreateViewModelFactory(context: Context): RecipeCreateViewModelFactory {
         val repository = getRecipeRepository(context)
-        return RecipesViewModelFactory(repository)
+        return RecipeCreateViewModelFactory(repository)
     }
 
     fun provideRecipesTypeViewModelFactory(

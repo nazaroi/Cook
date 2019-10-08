@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="bottom_navigation_height">48dp</dimen>
     <dimen name="item_recipe_height">148dp</dimen>
-    <dimen name="cook_app_stroke">2dp</dimen>
-    <dimen name="load_image_size">148dp</dimen>
-    <dimen name="recipe_load_image_height">128dp</dimen>
+
+    <dimen name="photo_loader_height">128dp</dimen>
+
+    <dimen name="tab_layout_height">36dp</dimen>
+    <dimen name="tab_radius">18dp</dimen>
+
+    <dimen name="detail_overlap_top_height">48dp</dimen>
+    <dimen name="create_recipe_fab_margin_end">32dp</dimen>
+    <dimen name="create_recipe_fab_translation_z">-48dp</dimen>
 </resources>

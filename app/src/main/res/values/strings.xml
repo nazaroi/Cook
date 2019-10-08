@@ -1,9 +1,45 @@
 <resources>
     <string name="app_name">Cook</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="recipe_title">Recipe Title</string>
     <string name="recipe_description">Recipe Description</string>
-    <string name="create_new_recipe">Create New Recipe</string>
-    <string name="add_new_recipe">Add New Recipe!</string>
+    <string name="create_new_recipe">Create New Recipe!</string>
+    <string name="submit">Submit</string>
+
+    <string name="textview">TextView  TextView
+    TextViewTextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView\n
+    TextView</string>
 </resources>

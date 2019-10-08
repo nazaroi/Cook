@@ -24,8 +24,8 @@ class HomeFragment : Fragment() {
 
         binding.homeTabLayout.setupWithViewPager(viewPager)
 
-        binding.homeFloatingActionButton.setOnClickListener {
-            val direction = HomeFragmentDirections.actionHomeFragmentToAddFragment()
+        binding.homeFab.setOnClickListener {
+            val direction = HomeFragmentDirections.actionNavigationHomeToFragmentRecipeCreate()
             findNavController().navigate(direction)
         }
         return binding.root

@@ -15,11 +15,11 @@
             android:layout_marginLeft="@dimen/margin_normal"
             android:layout_marginTop="@dimen/margin_normal"
             android:layout_marginRight="@dimen/margin_normal"
-            android:background="@drawable/tab_layout_background"
+            android:background="@drawable/bg_tab_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabBackground="@drawable/tab_item_background"
+            app:tabBackground="@drawable/bg_tab_item"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed"
@@ -45,19 +45,20 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_normal"
             android:layout_marginBottom="@dimen/margin_normal"
-            android:background="@drawable/round_cook_background"
+            android:background="@drawable/bg_fab_create_recipe"
             android:elevation="@dimen/elevation_normal"
-            android:padding="@dimen/cook_app_stroke"
+            android:padding="@dimen/stroke_size_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/home_floating_action_button"
+                android:id="@+id/home_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:tint="@android:color/white"
+                android:backgroundTint="@color/colorAccent"
                 app:elevation="0dp"
-                app:srcCompat="@drawable/ic_plus" />
+                app:srcCompat="@drawable/ic_plus"
+                app:tint="@android:color/white" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
