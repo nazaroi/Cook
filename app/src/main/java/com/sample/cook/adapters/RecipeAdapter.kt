@@ -1,12 +1,16 @@
 package com.sample.cook.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.balysv.materialripple.MaterialRippleLayout
 import com.sample.cook.HomeFragmentDirections
 import com.sample.cook.data.Recipe
 import com.sample.cook.databinding.ItemRecipeBinding
@@ -29,7 +33,8 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(Recipe
 
     private fun createOnClickListener(recipeId: String): View.OnClickListener {
         return View.OnClickListener {
-            val direction = HomeFragmentDirections.actionNavigationHomeToRecipeDetailFragment(recipeId)
+            val direction =
+                HomeFragmentDirections.actionNavigationHomeToRecipeDetailFragment(recipeId)
             it.findNavController().navigate(direction)
         }
     }

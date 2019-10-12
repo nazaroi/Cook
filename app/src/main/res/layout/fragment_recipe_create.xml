@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/khula_semibold"
-                    android:inputType="textPersonName"
+                    android:inputType="text|textCapWords"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/text_size_18sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/khula_semibold"
                     android:gravity="top"
-                    android:inputType="textMultiLine"
+                    android:inputType="textMultiLine|textCapSentences"
                     android:lines="5"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/text_size_18sp" />

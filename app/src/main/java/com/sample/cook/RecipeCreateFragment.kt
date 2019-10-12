@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sample.cook.data.Recipe
 import com.sample.cook.databinding.FragmentRecipeCreateBinding
 import com.sample.cook.utilities.InjectorUtils
@@ -39,6 +40,8 @@ class RecipeCreateFragment : Fragment() {
                 val id = name.toUnderscore()
 
                 viewModel.setNewRecipe(Recipe(id, name, description, imageUri, "my_recipes"))
+
+                findNavController().navigateUp()
             }
         }
         return binding.root

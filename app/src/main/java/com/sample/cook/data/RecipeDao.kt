@@ -14,6 +14,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipes WHERE type=:type ORDER BY name")
     fun getRecipesByType(type: String): LiveData<List<Recipe>>
 
+    @Query("SELECT * FROM recipes WHERE id IN (:ids) ORDER BY name")
+    fun getRecipesByIds(ids: Set<String>): List<Recipe>
+
     @Query("SELECT * FROM recipes WHERE id = :id")
     fun getRecipe(id: String): LiveData<Recipe>
 

@@ -55,7 +55,7 @@
                 android:id="@+id/home_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorAccent"
+                app:backgroundTint="@color/colorAccent"
                 app:elevation="0dp"
                 app:srcCompat="@drawable/ic_plus"
                 app:tint="@android:color/white" />

@@ -2,6 +2,8 @@ package com.sample.cook.adapters
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -14,11 +16,11 @@ fun bindIsGone(view: View, isGone: Boolean) {
     }
 }
 
-@BindingAdapter("imageFromUrl")
-fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
-    if (!imageUrl.isNullOrEmpty()) {
-        Glide.with(view.context)
-            .load(imageUrl)
-            .into(view)
+@BindingAdapter("renderHtml")
+fun bindRenderHtml(view: TextView, description: String?) {
+    if (description != null) {
+        view.text = HtmlCompat.fromHtml(description, HtmlCompat.FROM_HTML_MODE_COMPACT)
+    } else {
+        view.text = ""
     }
 }

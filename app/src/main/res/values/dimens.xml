@@ -2,12 +2,12 @@
 <resources>
     <dimen name="item_recipe_height">148dp</dimen>
 
-    <dimen name="photo_loader_height">128dp</dimen>
+    <dimen name="photo_loader_height">148dp</dimen>
 
-    <dimen name="tab_layout_height">36dp</dimen>
-    <dimen name="tab_radius">18dp</dimen>
+    <dimen name="tab_layout_height">48dp</dimen>
+    <dimen name="tab_radius">24dp</dimen>
 
     <dimen name="detail_overlap_top_height">48dp</dimen>
-    <dimen name="create_recipe_fab_margin_end">32dp</dimen>
     <dimen name="create_recipe_fab_translation_z">-48dp</dimen>
+    <dimen name="create_recipe_fab_margin_end">32dp</dimen>
 </resources>

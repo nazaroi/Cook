@@ -7,6 +7,8 @@ class RecipeRepository private constructor(private val recipeDao: RecipeDao) {
 
     fun getRecipes() = recipeDao.getRecipes()
 
+    fun getRecipesByIds(ids: Set<String>) = recipeDao.getRecipesByIds(ids)
+
     fun getRecipesByType(type: String) = recipeDao.getRecipesByType(type)
 
     fun getRecipe(recipeId: String) = recipeDao.getRecipe(recipeId)

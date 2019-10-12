@@ -1,10 +1,13 @@
 package com.sample.cook.utilities
 
+import android.app.Application
 import android.content.Context
 import com.sample.cook.data.AppDatabase
 import com.sample.cook.data.RecipeRepository
-import com.sample.cook.viewmodels.RecipesTypeViewModelFactory
+import com.sample.cook.viewmodels.FavoriteViewModelFactory
 import com.sample.cook.viewmodels.RecipeCreateViewModelFactory
+import com.sample.cook.viewmodels.RecipeViewModelFactory
+import com.sample.cook.viewmodels.RecipesTypeViewModelFactory
 
 object InjectorUtils {
 
@@ -23,5 +26,18 @@ object InjectorUtils {
     ): RecipesTypeViewModelFactory {
         val repository = getRecipeRepository(context)
         return RecipesTypeViewModelFactory(repository, type)
+    }
+
+    fun provideRecipeViewModelFactory(context: Context, id: String): RecipeViewModelFactory {
+        val repository = getRecipeRepository(context)
+        return RecipeViewModelFactory(repository, id)
+    }
+
+    fun provideFavoriteViewModelFactory(
+        context: Context,
+        application: Application
+    ): FavoriteViewModelFactory {
+        val repository = getRecipeRepository(context)
+        return FavoriteViewModelFactory(repository, application)
     }
 }

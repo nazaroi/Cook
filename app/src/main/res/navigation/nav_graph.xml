@@ -28,11 +28,7 @@
         android:id="@+id/fragment_recipe_create"
         android:name="com.sample.cook.RecipeCreateFragment"
         android:label="fragment_recipe_create"
-        tools:layout="@layout/fragment_recipe_create" >
-        <action
-            android:id="@+id/action_fragment_recipe_create_to_recipeDetailFragment"
-            app:destination="@id/recipeDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_recipe_create" />
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.sample.cook.SettingsFragment"

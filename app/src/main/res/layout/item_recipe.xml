@@ -14,37 +14,30 @@
             type="com.sample.cook.data.Recipe" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_recipe_height"
         android:layout_marginLeft="@dimen/margin_normal"
         android:layout_marginRight="@dimen/margin_normal"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginBottom="@dimen/margin_normal"
         android:onClick="@{clickListener}">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardElevation="0dp"
-            app:contentPadding="@dimen/stroke_size_normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop"
-                app:imageFromUrl="@{recipe.imageUri}"
-                tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:contentDescription="@null"
+            android:padding="@dimen/stroke_size_normal"
+            android:scaleType="centerCrop"
+            app:imageFromUri="@{recipe.imageUri}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/margin_normal"
             android:background="@drawable/bg_recipe_item_text"
             android:fontFamily="@font/khula_semibold"
             android:paddingLeft="@dimen/padding_normal"
@@ -53,23 +46,18 @@
             android:paddingBottom="@dimen/padding_small"
             android:text="@{recipe.name}"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="@dimen/text_size_18sp" />
 
         <ImageView
             android:layout_width="@dimen/icon_size_normal"
             android:layout_height="@dimen/icon_size_normal"
-            android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/margin_normal"
             android:background="@drawable/bg_recipe_remove"
             android:contentDescription="@null"
             android:padding="@dimen/padding_small"
             android:tint="@android:color/white"
-            app:isGone='@{!recipe.name.equals("my_recipes")}'
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:isGone='@{!recipe.type.equals("my_recipes")}'
             app:srcCompat="@drawable/ic_minus" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>
