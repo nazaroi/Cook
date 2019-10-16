@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onItemClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="item"
+            type="com.sample.cook.adapters.BackgroundImageItem" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="@dimen/settings_background_image_width"
+        android:layout_height="@dimen/settings_background_image_height"
+        android:layout_margin="@dimen/margin_normal"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{onItemClick}">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:contentDescription="@null"
+            android:cropToPadding="true"
+            android:padding="@dimen/stroke_size_normal"
+            android:scaleType="centerCrop"
+            android:src="@{item.resId}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/stroke_size_normal"
+            android:background="@color/colorPrimaryDark_alpha_60"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            app:isGone="@{!item.isSelected()}"
+            app:srcCompat="@drawable/ic_check" />
+    </FrameLayout>
+</layout>

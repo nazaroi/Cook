@@ -11,13 +11,13 @@ import androidx.lifecycle.observe
 import com.sample.cook.adapters.RecipeAdapter
 import com.sample.cook.databinding.FragmentRecipeListBinding
 import com.sample.cook.utilities.InjectorUtils
-import com.sample.cook.viewmodels.RecipesTypeViewModel
+import com.sample.cook.viewmodels.RecipeListViewModel
 
 class RecipeListFragment : Fragment() {
 
-    private val viewModel: RecipesTypeViewModel by viewModels {
-        val type = arguments?.get("type") as String
-        InjectorUtils.provideRecipesTypeViewModelFactory(requireContext(), type)
+    private val viewModel: RecipeListViewModel by viewModels {
+        val type = requireArguments().get("type") as String
+        InjectorUtils.provideRecipeListViewModelFactory(requireContext(), type)
     }
 
     override fun onCreateView(
@@ -26,7 +26,7 @@ class RecipeListFragment : Fragment() {
     ): View? {
         val binding = FragmentRecipeListBinding.inflate(inflater, container, false)
 
-        val adapter = RecipeAdapter()
+        val adapter = RecipeAdapter(requireContext())
 
         binding.recipeList.adapter = adapter
 

@@ -9,7 +9,7 @@ import com.sample.cook.data.Recipe
 import com.sample.cook.data.RecipeRepository
 import org.jetbrains.anko.doAsync
 
-class FavoriteViewModel(private val repository: RecipeRepository, application: Application) :
+class RecipeFavoriteViewModel(private val repository: RecipeRepository, application: Application) :
     AndroidViewModel(application) {
 
     var recipes = MutableLiveData<List<Recipe>>()
@@ -19,10 +19,10 @@ class FavoriteViewModel(private val repository: RecipeRepository, application: A
     }
 
     init {
-        val preferences = application.getSharedPreferences(APP_PREFERENCE_FILE, MODE_PRIVATE)
-        preferences.registerOnSharedPreferenceChangeListener(listener)
+        val pref = application.getSharedPreferences(APP_PREFERENCE_FILE, MODE_PRIVATE)
+        pref.registerOnSharedPreferenceChangeListener(listener)
 
-        loadFavorite(preferences)
+        loadFavorite(pref)
     }
 
     private fun loadFavorite(pref: SharedPreferences) {

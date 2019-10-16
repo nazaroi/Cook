@@ -17,7 +17,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         val viewPager = binding.homeViewPager.apply {
             adapter = HomePagerAdapter(childFragmentManager)
         }
@@ -31,8 +30,7 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    }
+
 }
 
 class HomePagerAdapter(supportFragmentManager: FragmentManager) :

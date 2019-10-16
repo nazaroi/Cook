@@ -15,6 +15,8 @@ class RecipeRepository private constructor(private val recipeDao: RecipeDao) {
 
     fun insert(recipe: Recipe) = recipeDao.insert(recipe)
 
+    fun delete(recipe: Recipe) = recipeDao.delete(recipe)
+
     companion object {
 
         private var instance: RecipeRepository? = null

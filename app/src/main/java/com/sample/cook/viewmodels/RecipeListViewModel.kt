@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.sample.cook.data.Recipe
 import com.sample.cook.data.RecipeRepository
 
-class RecipesTypeViewModel(recipeRepository: RecipeRepository, type: String) :
+class RecipeListViewModel(recipeRepository: RecipeRepository, type: String) :
     ViewModel() {
     val typeRecipes: LiveData<List<Recipe>> = recipeRepository.getRecipesByType(type)
 

@@ -6,12 +6,16 @@
     <data>
 
         <variable
-            name="clickListener"
+            name="onItemClick"
             type="android.view.View.OnClickListener" />
 
         <variable
             name="recipe"
             type="com.sample.cook.data.Recipe" />
+
+        <variable
+            name="recipeHandler"
+            type="com.sample.cook.adapters.RecipeHandler" />
     </data>
 
     <FrameLayout
@@ -19,9 +23,9 @@
         android:layout_height="@dimen/item_recipe_height"
         android:layout_marginLeft="@dimen/margin_normal"
         android:layout_marginRight="@dimen/margin_normal"
-        android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginBottom="@dimen/margin_normal"
-        android:onClick="@{clickListener}">
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{onItemClick}">
 
         <ImageView
             android:layout_width="match_parent"
@@ -30,7 +34,7 @@
             android:contentDescription="@null"
             android:padding="@dimen/stroke_size_normal"
             android:scaleType="centerCrop"
-            app:imageFromUri="@{recipe.imageUri}"
+            app:recipeImageUri="@{recipe.imageUri}"
             tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
 
         <TextView
@@ -44,7 +48,7 @@
             android:paddingTop="@dimen/padding_small"
             android:paddingRight="@dimen/padding_normal"
             android:paddingBottom="@dimen/padding_small"
-            android:text="@{recipe.name}"
+            android:text='@{recipe.name }'
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_size_18sp" />
 
@@ -53,8 +57,11 @@
             android:layout_height="@dimen/icon_size_normal"
             android:layout_gravity="top|end"
             android:layout_margin="@dimen/margin_normal"
-            android:background="@drawable/bg_recipe_remove"
+            android:background="@drawable/bg_recipe_delete_button"
+            android:clickable="true"
             android:contentDescription="@null"
+            android:focusable="true"
+            android:onClick="@{(view) -> recipeHandler.onRemove(view, recipe)}"
             android:padding="@dimen/padding_small"
             android:tint="@android:color/white"
             app:isGone='@{!recipe.type.equals("my_recipes")}'

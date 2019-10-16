@@ -39,13 +39,12 @@
                 android:layout_marginStart="@dimen/margin_normal"
                 android:layout_marginTop="@dimen/margin_normal"
                 android:layout_marginEnd="@dimen/margin_normal"
-                android:background="@color/colorPrimaryDark"
+                android:background="@android:color/white"
                 android:contentDescription="@null"
                 android:cropToPadding="true"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:padding="@dimen/stroke_size_small"
                 android:scaleType="centerCrop"
-                android:src="@drawable/recipe_photo_default"
+                android:src="@drawable/test"
                 tools:src="@tools:sample/backgrounds/scenic[1]" />
 
             <com.google.android.material.textfield.TextInputLayout

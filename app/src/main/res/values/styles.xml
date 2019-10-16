@@ -28,4 +28,9 @@
         <item name="android:fontFamily">@font/khula_semibold</item>
         <item name="android:textSize">@dimen/text_size_14sp</item>
     </style>
+
+    <style name="App.Toolbar.Title" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/khula_semibold</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+    </style>
 </resources>

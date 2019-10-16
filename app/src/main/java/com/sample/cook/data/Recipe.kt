@@ -1,6 +1,5 @@
 package com.sample.cook.data
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -12,4 +11,4 @@ data class Recipe(
     val description: String,
     @SerializedName("imageUrl") val imageUri: String?,
     val type: String
-)
+    )

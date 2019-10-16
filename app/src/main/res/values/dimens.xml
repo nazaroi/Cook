@@ -4,10 +4,13 @@
 
     <dimen name="photo_loader_height">148dp</dimen>
 
-    <dimen name="tab_layout_height">48dp</dimen>
-    <dimen name="tab_radius">24dp</dimen>
+    <dimen name="tab_layout_height">36dp</dimen>
+    <dimen name="tab_radius">18dp</dimen>
 
-    <dimen name="detail_overlap_top_height">48dp</dimen>
-    <dimen name="create_recipe_fab_translation_z">-48dp</dimen>
+    <dimen name="detail_overlap_top_height">64dp</dimen>
+    <dimen name="create_recipe_fab_translation_z">-80dp</dimen>
+
     <dimen name="create_recipe_fab_margin_end">32dp</dimen>
+    <dimen name="settings_background_image_width">75dp</dimen>
+    <dimen name="settings_background_image_height">115dp</dimen>
 </resources>

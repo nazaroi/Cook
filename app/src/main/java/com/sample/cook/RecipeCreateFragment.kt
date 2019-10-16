@@ -36,7 +36,7 @@ class RecipeCreateFragment : Fragment() {
             if (isRecipeValid()) {
                 val name = binding.nameInputLayout.editText?.text.toString()
                 val description = binding.descriptionInputLayout.editText?.text.toString()
-                val imageUri = binding.photoLoader.tag.toString()
+                val imageUri = binding.photoLoader.tag?.toString()
                 val id = name.toUnderscore()
 
                 viewModel.setNewRecipe(Recipe(id, name, description, imageUri, "my_recipes"))

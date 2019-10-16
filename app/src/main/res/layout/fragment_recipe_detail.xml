@@ -20,10 +20,12 @@
             android:layout_height="@dimen/app_bar_height">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                app:contentScrim="?attr/colorPrimaryDark"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false"
                 app:toolbarId="@+id/toolbar">
 
                 <ImageView
@@ -32,7 +34,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@null"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bg_app" />
+                    app:recipeImageUri="@{recipe.imageUri}" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -40,7 +42,15 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="@drawable/bg_recipe_detail_toolbar"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_detail_back" />
+                    app:navigationIcon="@drawable/ic_detail_back"
+                    app:titleTextAppearance="@style/App.Toolbar.Title"
+                    app:titleTextColor="@android:color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_size_normal"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/white" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
@@ -48,15 +58,14 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:overScrollMode="never"
             app:behavior_overlapTop="@dimen/detail_overlap_top_height"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_margin="@dimen/margin_normal"
                 android:background="@drawable/bg_recipe_detail_content"
                 android:orientation="vertical"
                 android:padding="@dimen/padding_normal">
@@ -78,8 +87,8 @@
                     android:fontFamily="@font/khula"
                     android:paddingTop="@dimen/padding_normal"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    app:renderHtml="@{recipe.description}"
+                    android:textSize="@dimen/text_size_18sp"
+                    app:text="@{recipe.description}"
                     tools:text="@tools:sample/lorem/random" />
 
             </LinearLayout>

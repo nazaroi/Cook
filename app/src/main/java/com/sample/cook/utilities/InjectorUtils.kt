@@ -2,17 +2,17 @@ package com.sample.cook.utilities
 
 import android.app.Application
 import android.content.Context
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProviders
 import com.sample.cook.data.AppDatabase
 import com.sample.cook.data.RecipeRepository
-import com.sample.cook.viewmodels.FavoriteViewModelFactory
-import com.sample.cook.viewmodels.RecipeCreateViewModelFactory
-import com.sample.cook.viewmodels.RecipeViewModelFactory
-import com.sample.cook.viewmodels.RecipesTypeViewModelFactory
+import com.sample.cook.viewmodels.*
 
 object InjectorUtils {
 
-    private fun getRecipeRepository(context: Context): RecipeRepository {
-        return RecipeRepository.getInstance(AppDatabase.getInstance(context.applicationContext).recipeDao())
+     fun getRecipeRepository(context: Context): RecipeRepository {
+        val dao = AppDatabase.getInstance(context.applicationContext).recipeDao()
+        return RecipeRepository.getInstance(dao)
     }
 
     fun provideRecipeCreateViewModelFactory(context: Context): RecipeCreateViewModelFactory {
@@ -20,12 +20,12 @@ object InjectorUtils {
         return RecipeCreateViewModelFactory(repository)
     }
 
-    fun provideRecipesTypeViewModelFactory(
+    fun provideRecipeListViewModelFactory(
         context: Context,
         type: String
-    ): RecipesTypeViewModelFactory {
+    ): RecipeListViewModelFactory {
         val repository = getRecipeRepository(context)
-        return RecipesTypeViewModelFactory(repository, type)
+        return RecipeListViewModelFactory(repository, type)
     }
 
     fun provideRecipeViewModelFactory(context: Context, id: String): RecipeViewModelFactory {
@@ -33,11 +33,11 @@ object InjectorUtils {
         return RecipeViewModelFactory(repository, id)
     }
 
-    fun provideFavoriteViewModelFactory(
+    fun provideRecipeFavoriteViewModelFactory(
         context: Context,
         application: Application
-    ): FavoriteViewModelFactory {
+    ): RecipeFavoriteViewModelFactory {
         val repository = getRecipeRepository(context)
-        return FavoriteViewModelFactory(repository, application)
+        return RecipeFavoriteViewModelFactory(repository, application)
     }
 }

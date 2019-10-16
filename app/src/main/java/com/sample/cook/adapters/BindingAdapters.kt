@@ -24,3 +24,8 @@ fun bindRenderHtml(view: TextView, description: String?) {
         view.text = ""
     }
 }
+
+@BindingAdapter("android:src")
+fun setImageResource(imageView: ImageView, resource: Int) {
+    imageView.setImageResource(resource)
+}
