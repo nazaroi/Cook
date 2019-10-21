@@ -54,7 +54,7 @@ We used [Gson](https://github.com/google/gson) to convert a JSON string to an eq
 </p>
 
 ## Third Party Content
--------------------
+
 Select text used for recipes (in `recipes.json`) are used from www.thekitchn.com.
 
 ## License
