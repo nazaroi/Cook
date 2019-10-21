@@ -4,9 +4,9 @@ Cook Android App
 A kotlin sample app illustrating some Android development best practices with Android Jetpack.
 
 <p align="center">
-<img width="240" src="screenshots/list_of_animals.png">
-<img width="240" src="screenshots/elephant_article.png">
-<img width="240" src="screenshots/elephant_gallery.png">
+<img width="240" src="screenshots/screenshot_detail.png">
+<img width="240" src="screenshots/screenshot_new_recipe.png">
+<img width="240" src="screenshots/screenshot_recipe_list.png">
 </p>
 
 # Features
