@@ -41,13 +41,12 @@ SharedPreferences.
 We used [Navigation component](https://developer.android.com/guide/navigation)
 to simplify into a single Activity app.
 
+We used [Room](https://developer.android.com/jetpack/androidx/releases/room) for recipes.
+
+We used [Glide](https://bumptech.github.io/glide) for image loading.
+
 # Project Structure
 
 <p align="center">
 <img src="images/package_structure.png">
 </p>
-
-
-We used [Room](https://developer.android.com/jetpack/androidx/releases/room) for recipes.
-
-We used [Glide](https://bumptech.github.io/glide) for image loading.
