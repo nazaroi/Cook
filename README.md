@@ -12,7 +12,7 @@ A kotlin sample app illustrating some Android development best practices with An
 
 # Features
 
-The app displays a list od recipes - family friendly, vegetarian and personal. Users can see details about recipes, and they can star events that interest them. 
+The app displays a list of recipes - family friendly, vegetarian and personal. Users can see details about recipes, and they can put likes to recipes that interest them. 
 
 Other features include creating new personal recipes, changing application background image.
 
