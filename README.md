@@ -38,11 +38,6 @@ to bind UI components in layouts to the app's data sources.
 We used a Repository layer for handling data operations. Settings are stored in
 SharedPreferences.
 
-We implemented a lightweight domain layer, which sits between the data layer
-and the presentation layer, and handles discrete pieces of business logic off
-the UI thread. See the `.\*UseCase.kt` files under `shared/domain` for
-[examples](https://github.com/google/iosched/search?q=UseCase&unscoped_q=UseCase).
-
 We used [Navigation component](https://developer.android.com/guide/navigation)
 to simplify into a single Activity app.
 
