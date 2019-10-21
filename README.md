@@ -43,6 +43,8 @@ to simplify into a single Activity app.
 
 We used [Room](https://developer.android.com/jetpack/androidx/releases/room) for recipes.
 
+We used [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) for Android background jobs.
+
 We used [Glide](https://bumptech.github.io/glide) for image loading.
 
 We used [Gson](https://github.com/google/gson) to convert a JSON string to an equivalent Java object..
