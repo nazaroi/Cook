@@ -40,22 +40,22 @@ class HomePagerAdapter(supportFragmentManager: FragmentManager) :
     FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment = when (position) {
-        0 -> RecipeListFragment.newInstance(RECIPE_FAMILY_TYPE)
-        1 -> RecipeListFragment.newInstance(RECIPE_VEGETARIAN_TYPE)
-        else -> RecipeListFragment.newInstance(RECIPE_MINE_TYPE)
+        0 -> RecipeListFragment.newInstance(RECIPE_TYPE_FAMILY)
+        1 -> RecipeListFragment.newInstance(RECIPE_TYPE_VEGETARIAN)
+        else -> RecipeListFragment.newInstance(RECIPE_TYPE_MINE)
     }
 
     override fun getPageTitle(position: Int): CharSequence? = when (position) {
-        0 -> "F.Friendly"
+        0 -> "Friendly"
         1 -> "Vegetarian"
-        else -> "Mine"
+        else -> "My recipes"
     }
 
     override fun getCount(): Int = 3
 
     companion object {
-        const val RECIPE_FAMILY_TYPE = "family-friendly"
-        const val RECIPE_VEGETARIAN_TYPE = "vegetarian"
-        const val RECIPE_MINE_TYPE = "mine"
+        const val RECIPE_TYPE_FAMILY = "family-friendly"
+        const val RECIPE_TYPE_VEGETARIAN = "vegetarian"
+        const val RECIPE_TYPE_MINE = "mine"
     }
 }

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.sample.cook.HomePagerAdapter.Companion.RECIPE_MINE_TYPE
+import com.sample.cook.HomePagerAdapter.Companion.RECIPE_TYPE_MINE
 import com.sample.cook.data.Recipe
 import com.sample.cook.databinding.FragmentRecipeCreateBinding
 import com.sample.cook.utilities.InjectorUtils
@@ -44,7 +44,7 @@ class RecipeCreateFragment : Fragment() {
                     val imageUri = binding.photoLoader.tag?.toString()
                     val id = name.toUnderscore()
 
-                    insert(Recipe(id, name, description, imageUri, RECIPE_MINE_TYPE))
+                    insert(Recipe(id, name, description, imageUri, RECIPE_TYPE_MINE))
                 }
 
                 findNavController().navigateUp()
