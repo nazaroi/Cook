@@ -7,6 +7,7 @@ A kotlin sample app illustrating some Android development best practices with An
 <img width="240" src="screenshots/screenshot_detail.png">
 <img width="240" src="screenshots/screenshot_new_recipe.png">
 <img width="240" src="screenshots/screenshot_recipe_list.png">
+<img width="240" src="screenshots/screenshot_settings.png">
 </p>
 
 # Features
