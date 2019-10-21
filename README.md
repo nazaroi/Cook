@@ -4,14 +4,15 @@ Cook Android App
 A kotlin sample app illustrating some Android development best practices with Android Jetpack.
 
 <p align="center">
-<img width="240" src="screenshots/list_of_animals.png">
-<img width="240" src="screenshots/elephant_article.png">
-<img width="240" src="screenshots/elephant_gallery.png">
+<img width="240" src="images/screenshot_detail.png">
+<img width="240" src="images/screenshot_new_recipe.png">
+<img width="240" src="images/screenshot_recipe_list.png">
+<img width="240" src="images/screenshot_settings.png">
 </p>
 
 # Features
 
-The app displays a list od recipes - family friendly, vegetarian and personal. Users can see details about recipes, and they can star events that interest them. 
+The app displays a list of recipes - family friendly, vegetarian and personal. Users can see details about recipes, and they can put likes to recipes that interest them. 
 
 Other features include creating new personal recipes, changing application background image.
 
@@ -37,16 +38,16 @@ to bind UI components in layouts to the app's data sources.
 We used a Repository layer for handling data operations. Settings are stored in
 SharedPreferences.
 
-We implemented a lightweight domain layer, which sits between the data layer
-and the presentation layer, and handles discrete pieces of business logic off
-the UI thread. See the `.\*UseCase.kt` files under `shared/domain` for
-[examples](https://github.com/google/iosched/search?q=UseCase&unscoped_q=UseCase).
-
 We used [Navigation component](https://developer.android.com/guide/navigation)
 to simplify into a single Activity app.
+
+# Project Structure
+
+<p align="center">
+<img src="images/package_structure.png">
+</p>
+
 
 We used [Room](https://developer.android.com/jetpack/androidx/releases/room) for recipes.
 
 We used [Glide](https://bumptech.github.io/glide) for image loading.
-
-
