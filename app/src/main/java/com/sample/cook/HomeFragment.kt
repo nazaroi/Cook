@@ -17,6 +17,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+
         val viewPager = binding.homeViewPager.apply {
             adapter = HomePagerAdapter(childFragmentManager)
         }
@@ -27,6 +29,7 @@ class HomeFragment : Fragment() {
             val direction = HomeFragmentDirections.actionNavigationHomeToFragmentRecipeCreate()
             findNavController().navigate(direction)
         }
+
         return binding.root
     }
 
@@ -37,16 +40,22 @@ class HomePagerAdapter(supportFragmentManager: FragmentManager) :
     FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment = when (position) {
-        0 -> RecipeListFragment.newInstance("family-friendly")
-        1 -> RecipeListFragment.newInstance("vegetarian")
-        else -> RecipeListFragment.newInstance("my_recipes")
+        0 -> RecipeListFragment.newInstance(RECIPE_FAMILY_TYPE)
+        1 -> RecipeListFragment.newInstance(RECIPE_VEGETARIAN_TYPE)
+        else -> RecipeListFragment.newInstance(RECIPE_MINE_TYPE)
     }
 
     override fun getPageTitle(position: Int): CharSequence? = when (position) {
-        0 -> "Friendly"
+        0 -> "F.Friendly"
         1 -> "Vegetarian"
-        else -> "My recipes"
+        else -> "Mine"
     }
 
     override fun getCount(): Int = 3
+
+    companion object {
+        const val RECIPE_FAMILY_TYPE = "family-friendly"
+        const val RECIPE_VEGETARIAN_TYPE = "vegetarian"
+        const val RECIPE_MINE_TYPE = "mine"
+    }
 }

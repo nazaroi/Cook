@@ -1,16 +1,16 @@
 package com.sample.cook.utilities
 
-import android.app.Application
 import android.content.Context
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
 import com.sample.cook.data.AppDatabase
 import com.sample.cook.data.RecipeRepository
-import com.sample.cook.viewmodels.*
+import com.sample.cook.viewmodels.FavoriteViewModelFactory
+import com.sample.cook.viewmodels.RecipeCreateViewModelFactory
+import com.sample.cook.viewmodels.RecipeDetailViewModelFactory
+import com.sample.cook.viewmodels.RecipeListViewModelFactory
 
 object InjectorUtils {
 
-     fun getRecipeRepository(context: Context): RecipeRepository {
+    private fun getRecipeRepository(context: Context): RecipeRepository {
         val dao = AppDatabase.getInstance(context.applicationContext).recipeDao()
         return RecipeRepository.getInstance(dao)
     }
@@ -28,16 +28,16 @@ object InjectorUtils {
         return RecipeListViewModelFactory(repository, type)
     }
 
-    fun provideRecipeViewModelFactory(context: Context, id: String): RecipeViewModelFactory {
+    fun provideRecipeDetailViewModelFactory(
+        context: Context,
+        id: String
+    ): RecipeDetailViewModelFactory {
         val repository = getRecipeRepository(context)
-        return RecipeViewModelFactory(repository, id)
+        return RecipeDetailViewModelFactory(repository, id)
     }
 
-    fun provideRecipeFavoriteViewModelFactory(
-        context: Context,
-        application: Application
-    ): RecipeFavoriteViewModelFactory {
+    fun provideFavoriteViewModelFactory(context: Context): FavoriteViewModelFactory {
         val repository = getRecipeRepository(context)
-        return RecipeFavoriteViewModelFactory(repository, application)
+        return FavoriteViewModelFactory(repository)
     }
 }

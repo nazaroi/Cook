@@ -1,10 +1,12 @@
 package com.sample.cook.viewmodels
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.preference.PreferenceManager.getDefaultSharedPreferences
 import com.sample.cook.R
 
-class BackgroundImageViewModel : ViewModel() {
+class BackgroundImageViewModel(application: Application) : AndroidViewModel(application) {
 
     val imageResourceIds = MutableLiveData<IntArray>()
 
@@ -12,15 +14,19 @@ class BackgroundImageViewModel : ViewModel() {
 
     init {
         imageResourceIds.value = intArrayOf(
+            R.drawable.bg_app_0,
             R.drawable.bg_app_1,
             R.drawable.bg_app_2,
             R.drawable.bg_app_3,
-            R.drawable.bg_app_4,
-            R.drawable.bg_app_5
+            R.drawable.bg_app_4
         )
 
-        currImageIndex.value = 0
+        currImageIndex.value =
+            getDefaultSharedPreferences(application).getInt(BACKGROUND_IMAGE_INDEX_PREFERENCE, 0)
     }
 
-
+    companion object {
+        const val BACKGROUND_IMAGE_INDEX_PREFERENCE =
+            "com.sample.cook.BACKGROUND_IMAGE_INDEX_PREFERENCE"
+    }
 }

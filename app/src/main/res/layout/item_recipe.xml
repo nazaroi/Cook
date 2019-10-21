@@ -6,16 +6,12 @@
     <data>
 
         <variable
-            name="onItemClick"
-            type="android.view.View.OnClickListener" />
-
-        <variable
             name="recipe"
             type="com.sample.cook.data.Recipe" />
 
         <variable
-            name="recipeHandler"
-            type="com.sample.cook.adapters.RecipeHandler" />
+            name="handler"
+            type="com.sample.cook.handlers.RecipeHandler" />
     </data>
 
     <FrameLayout
@@ -25,17 +21,30 @@
         android:layout_marginRight="@dimen/margin_normal"
         android:layout_marginBottom="@dimen/margin_normal"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="@{onItemClick}">
+        android:onClick="@{(view) -> handler.openDetail(view,recipe)}">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:contentDescription="@null"
-            android:padding="@dimen/stroke_size_normal"
-            android:scaleType="centerCrop"
-            app:recipeImageUri="@{recipe.imageUri}"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/stroke_size_normal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:contentDescription="@null"
+                app:isGone="@{recipe.imageUri!=null}" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:isGone="@{recipe.imageUri==null}"
+                app:imageUri="@{recipe.imageUri}" />
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,7 +59,8 @@
             android:paddingBottom="@dimen/padding_small"
             android:text='@{recipe.name }'
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_18sp" />
+            android:textSize="@dimen/text_size_18sp"
+            tools:text="@tools:sample/full_names" />
 
         <ImageView
             android:layout_width="@dimen/icon_size_normal"
@@ -61,10 +71,21 @@
             android:clickable="true"
             android:contentDescription="@null"
             android:focusable="true"
-            android:onClick="@{(view) -> recipeHandler.onRemove(view, recipe)}"
+            android:onClick="@{(view) -> handler.remove(recipe)}"
             android:padding="@dimen/padding_small"
             android:tint="@android:color/white"
-            app:isGone='@{!recipe.type.equals("my_recipes")}'
+            app:isGone='@{!recipe.type.equals("mine")}'
             app:srcCompat="@drawable/ic_minus" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_margin="@dimen/margin_normal"
+            android:contentDescription="@null"
+            android:tint="@color/colorRed"
+            app:isGone="@{!recipe.favorite}"
+            app:srcCompat="@drawable/ic_heart" />
     </FrameLayout>
 </layout>

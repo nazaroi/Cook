@@ -25,9 +25,9 @@ class RecipeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentRecipeListBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
-        val adapter = RecipeAdapter(requireContext())
-
+        val adapter = RecipeAdapter(viewModel)
         binding.recipeList.adapter = adapter
 
         subscribeUi(adapter, binding)
@@ -35,12 +35,9 @@ class RecipeListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    }
-
     private fun subscribeUi(adapter: RecipeAdapter, binding: FragmentRecipeListBinding) {
         viewModel.typeRecipes.observe(viewLifecycleOwner) { list ->
-            if (!list.isNullOrEmpty()) adapter.submitList(list)
+            adapter.submitList(list)
         }
     }
 

@@ -10,8 +10,12 @@
             type="android.view.View.OnClickListener" />
 
         <variable
-            name="item"
-            type="com.sample.cook.adapters.BackgroundImageItem" />
+            name="resId"
+            type="int" />
+
+        <variable
+            name="isSelected"
+            type="boolean" />
     </data>
 
     <FrameLayout
@@ -29,7 +33,7 @@
             android:cropToPadding="true"
             android:padding="@dimen/stroke_size_normal"
             android:scaleType="centerCrop"
-            android:src="@{item.resId}"
+            android:src="@{resId}"
             tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
 
         <ImageView
@@ -39,7 +43,7 @@
             android:background="@color/colorPrimaryDark_alpha_60"
             android:contentDescription="@null"
             android:scaleType="center"
-            app:isGone="@{!item.isSelected()}"
+            app:isGone="@{!isSelected}"
             app:srcCompat="@drawable/ic_check" />
     </FrameLayout>
 </layout>

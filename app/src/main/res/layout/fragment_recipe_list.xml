@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipe_list"
         android:layout_width="match_parent"
@@ -12,4 +13,5 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:context=".HomeFragment"
         tools:listitem="@layout/item_recipe" />
+
 </layout>

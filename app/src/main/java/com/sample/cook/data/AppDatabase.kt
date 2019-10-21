@@ -9,7 +9,6 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.sample.cook.utilities.DATABASE_NAME
 import com.sample.cook.workers.CookDatabaseWorker
-import timber.log.Timber
 
 @Database(entities = [Recipe::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
@@ -27,13 +26,8 @@ abstract class AppDatabase : RoomDatabase() {
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
-                        Timber.e("onCreate")
                         val request = OneTimeWorkRequestBuilder<CookDatabaseWorker>().build()
                         WorkManager.getInstance(context).enqueue(request)
-                    }
-
-                    override fun onOpen(db: SupportSQLiteDatabase) {
-                        Timber.e("onOpen")
                     }
                 }).build()
         }

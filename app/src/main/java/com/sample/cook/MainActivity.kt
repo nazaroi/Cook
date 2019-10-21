@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(binding.root)
+
         binding.bottomNavigation.setupWithNavController(
             Navigation.findNavController(this, R.id.nav_host_fragment)
         )

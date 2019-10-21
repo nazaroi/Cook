@@ -2,20 +2,16 @@ package com.sample.cook.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sample.cook.data.Recipe
 import com.sample.cook.data.RecipeRepository
-import org.jetbrains.anko.doAsync
+import kotlinx.coroutines.launch
 
-class RecipeCreateViewModel(repository: RecipeRepository) : ViewModel() {
-    private val newRecipe = MutableLiveData<Recipe>()
+class RecipeCreateViewModel(val repository: RecipeRepository) : ViewModel() {
 
-    init {
-        newRecipe.observeForever {
-            doAsync { repository.insert(it) }
+    fun insert(recipe: Recipe) {
+        viewModelScope.launch {
+            repository.insert(recipe)
         }
-    }
-
-    fun setNewRecipe(_newRecipe: Recipe) {
-        newRecipe.value = _newRecipe
     }
 }

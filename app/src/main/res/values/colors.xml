@@ -5,10 +5,14 @@
     <color name="colorPrimaryDark_alpha_60">#9A4D2B90</color>
     <color name="colorPrimaryLight">#B084F4</color>
 
+    <color name="colorRed">#E53935</color>
+
+
     <color name="colorAccent">#1976d2</color>
 
     <color name="white_alpha_33">#54FFFFFF</color>
     <color name="white_alpha_50">#80FFFFFF</color>
+    <color name="white_alpha_85">#D8FFFFFF</color>
 
     <!-- change TextInputLayout border color when unfocused -->
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">

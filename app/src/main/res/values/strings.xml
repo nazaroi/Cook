@@ -4,10 +4,8 @@
     <string name="recipe_title">Recipe Title</string>
     <string name="recipe_description">Recipe Description</string>
     <string name="create_new_recipe">Create New Recipe!</string>
-    <string name="submit">Submit</string>
 
-    <string name="content_text">
-        Put a pizza stone in the oven (or an upside-down baking pan) and preheat the oven to 500 degrees F. \n\nLay a large square of parchment paper on a work surface with the pizza dough on top. Pull and stretch the dough into a 14-inch round; poke the dough a few times with a fork. Use a pizza peel or a flat cookie sheet to transfer the parchment paper with the dough to the oven. Bake until pale golden, 5 to 6 minutes. \n\nRemove the pizza from the oven, drizzle with the olive oil and spread the tomato sauce on top, leaving a 1-inch border all around. Sprinkle with the mozzarella, then distribute the ham, pineapple and tortellini evenly all around. Return to the oven and bake until the crust is golden brown and the cheese is melted, 8 to 10 minutes more. \n\nTop the pizza with the torn basil, grated Parmesan and red pepper flakes. Cut into slices and serve immediately.
-    </string>
     <string name="settings_background_image">Background Image:</string>
+    <string name="any_added_favorites_yet">Any Added\n Favorites Yet!</string>
+
 </resources>

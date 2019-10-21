@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.sample.cook.HomePagerAdapter.Companion.RECIPE_MINE_TYPE
 import com.sample.cook.data.Recipe
 import com.sample.cook.databinding.FragmentRecipeCreateBinding
 import com.sample.cook.utilities.InjectorUtils
-import com.sample.cook.utilities.toBitmap
 import com.sample.cook.utilities.toUnderscore
 import com.sample.cook.viewmodels.RecipeCreateViewModel
 
@@ -30,16 +30,22 @@ class RecipeCreateFragment : Fragment() {
     ): View? {
 
         binding = FragmentRecipeCreateBinding.inflate(inflater, container, false)
-        binding.photoLoader.setOnClickListener { photoFromGallery() }
+
+        binding.photoLoader.setOnClickListener {
+            photoFromGallery()
+        }
 
         binding.createNewRecipe.setOnClickListener {
-            if (isRecipeValid()) {
-                val name = binding.nameInputLayout.editText?.text.toString()
-                val description = binding.descriptionInputLayout.editText?.text.toString()
-                val imageUri = binding.photoLoader.tag?.toString()
-                val id = name.toUnderscore()
+            if (validRecipe()) {
 
-                viewModel.setNewRecipe(Recipe(id, name, description, imageUri, "my_recipes"))
+                viewModel.run {
+                    val name = binding.nameInputLayout.editText?.text.toString()
+                    val description = binding.descriptionInputLayout.editText?.text.toString()
+                    val imageUri = binding.photoLoader.tag?.toString()
+                    val id = name.toUnderscore()
+
+                    insert(Recipe(id, name, description, imageUri, RECIPE_MINE_TYPE))
+                }
 
                 findNavController().navigateUp()
             }
@@ -47,7 +53,7 @@ class RecipeCreateFragment : Fragment() {
         return binding.root
     }
 
-    private fun isRecipeValid(): Boolean {
+    private fun validRecipe(): Boolean {
 
         val name = binding.nameInputLayout.editText?.text.toString()
         if (name.isBlank()) {
@@ -74,10 +80,8 @@ class RecipeCreateFragment : Fragment() {
         super.onActivityResult(reqCode, resultCode, intent)
         if (resultCode == RESULT_OK && reqCode == PHOTO_PICK_REQUEST_CODE) {
             intent?.data?.let { uri ->
-                binding.photoLoader.apply {
-                    tag = uri
-                    setImageBitmap(uri.toBitmap(requireContext()))
-                }
+                binding.imageUri = uri.toString()
+                binding.photoLoader.tag = uri
             }
         }
     }

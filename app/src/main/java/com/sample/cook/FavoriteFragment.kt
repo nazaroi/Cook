@@ -10,14 +10,12 @@ import androidx.lifecycle.observe
 import com.sample.cook.adapters.RecipeAdapter
 import com.sample.cook.databinding.FragmentFavoriteBinding
 import com.sample.cook.utilities.InjectorUtils
-import com.sample.cook.viewmodels.RecipeFavoriteViewModel
+import com.sample.cook.viewmodels.FavoriteViewModel
 
 class FavoriteFragment : Fragment() {
 
-    private val viewModel: RecipeFavoriteViewModel by viewModels {
-        InjectorUtils.provideRecipeFavoriteViewModelFactory(
-            requireContext(), requireActivity().application
-        )
+    private val viewModel: FavoriteViewModel by viewModels {
+        InjectorUtils.provideFavoriteViewModelFactory(requireContext())
     }
 
     override fun onCreateView(
@@ -26,7 +24,10 @@ class FavoriteFragment : Fragment() {
     ): View? {
         val binding = FragmentFavoriteBinding.inflate(inflater, container, false)
 
-        val adapter = RecipeAdapter(requireContext())
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
+        val adapter = RecipeAdapter(viewModel)
         binding.recipeList.adapter = adapter
 
         subscribeUi(adapter, binding)
@@ -34,9 +35,10 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
+
     private fun subscribeUi(adapter: RecipeAdapter, binding: FragmentFavoriteBinding) {
-        viewModel.recipes.observe(viewLifecycleOwner) { list ->
-            if (!list.isNullOrEmpty()) adapter.submitList(list)
+        viewModel.favoriteRecipes.observe(viewLifecycleOwner) { list ->
+            adapter.submitList(list)
         }
     }
 }

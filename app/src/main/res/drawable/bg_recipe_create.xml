@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- radius should be half of the desired TabLayout height -->
+    <corners android:radius="@dimen/radius_normal" />
+    <!-- TabLayout background color -->
+    <solid android:color="@color/white_alpha_85" />
+    <stroke
+        android:width="@dimen/stroke_size_normal"
+        android:color="@color/colorPrimaryDark" />
+</shape>

@@ -1,5 +1,8 @@
 package com.sample.cook.data
 
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.withContext
+
 /**
  * Repository module for handling data operations.
  */
@@ -13,9 +16,25 @@ class RecipeRepository private constructor(private val recipeDao: RecipeDao) {
 
     fun getRecipe(recipeId: String) = recipeDao.getRecipe(recipeId)
 
-    fun insert(recipe: Recipe) = recipeDao.insert(recipe)
+    fun getFavoriteRecipes() = recipeDao.getFavoriteRecipes()
 
-    fun delete(recipe: Recipe) = recipeDao.delete(recipe)
+    suspend fun update(recipe: Recipe) {
+        withContext(IO) {
+            recipeDao.update(recipe)
+        }
+    }
+
+    suspend fun delete(recipe: Recipe) {
+        withContext(IO) {
+            recipeDao.delete(recipe)
+        }
+    }
+
+    suspend fun insert(recipe: Recipe) {
+        withContext(IO) {
+            recipeDao.insert(recipe)
+        }
+    }
 
     companion object {
 

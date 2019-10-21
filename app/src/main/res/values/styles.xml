@@ -15,7 +15,7 @@
 
     <style name="App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- applied when TextInputLayout is focused -->
-        <item name="boxStrokeColor">@android:color/white</item>
+        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
         <item name="boxStrokeWidth">@dimen/stroke_size_normal</item>
 
         <!-- applied when hint is not focused -->
@@ -24,7 +24,7 @@
 
     <style name="App.TextInputLayout.HintTextAppearance" parent="@android:style/TextAppearance">
         <!-- applied when TextInputLayout is focused -->
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">@font/khula_semibold</item>
         <item name="android:textSize">@dimen/text_size_14sp</item>
     </style>

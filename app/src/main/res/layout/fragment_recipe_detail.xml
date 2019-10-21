@@ -34,7 +34,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@null"
                     android:scaleType="centerCrop"
-                    app:recipeImageUri="@{recipe.imageUri}" />
+                    app:imageUri="@{recipe.imageUri}" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -107,6 +107,6 @@
             app:layout_anchor="@id/appbar"
             app:layout_anchorGravity="bottom|end"
             app:srcCompat="@drawable/ic_heart"
-            app:tint="@android:color/white" />
+            app:tint="@color/colorPrimary" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

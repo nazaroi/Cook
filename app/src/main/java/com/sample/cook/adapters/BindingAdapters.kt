@@ -27,5 +27,14 @@ fun bindRenderHtml(view: TextView, description: String?) {
 
 @BindingAdapter("android:src")
 fun setImageResource(imageView: ImageView, resource: Int) {
-    imageView.setImageResource(resource)
+    Glide.with(imageView.context)
+        .load(resource)
+        .into(imageView);
+}
+
+@BindingAdapter("imageUri")
+fun bindImageUri(view: ImageView, imageUri: String?) {
+    if (!imageUri.isNullOrEmpty()) {
+        Glide.with(view.context).load(imageUri).into(view)
+    }
 }

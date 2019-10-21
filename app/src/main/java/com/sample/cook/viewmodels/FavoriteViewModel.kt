@@ -1,23 +1,23 @@
 package com.sample.cook.viewmodels
 
 import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
-import com.sample.cook.HomeFragmentDirections
+import com.sample.cook.FavoriteFragmentDirections
 import com.sample.cook.handlers.RecipeHandler
 import com.sample.cook.data.Recipe
 import com.sample.cook.data.RecipeRepository
 import kotlinx.coroutines.launch
 
-class RecipeListViewModel(val repository: RecipeRepository, type: String) : ViewModel(),
+class FavoriteViewModel(val repository: RecipeRepository) : ViewModel(),
     RecipeHandler {
-    val typeRecipes: LiveData<List<Recipe>> = repository.getRecipesByType(type)
 
+    var favoriteRecipes = repository.getFavoriteRecipes()
 
     override fun openDetail(view: View, recipe: Recipe) {
-        val direction = HomeFragmentDirections.actionNavigationHomeToRecipeDetailFragment(recipe.id)
+        val direction =
+            FavoriteFragmentDirections.actionNavigationFavoriteToRecipeDetailFragment(recipe.id)
         view.findNavController().navigate(direction)
     }
 

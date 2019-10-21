@@ -10,5 +10,6 @@ data class Recipe(
     val name: String,
     val description: String,
     @SerializedName("imageUrl") val imageUri: String?,
-    val type: String
-    )
+    val type: String,
+    val isFavorite: Boolean = false
+)

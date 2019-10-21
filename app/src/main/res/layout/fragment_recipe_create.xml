@@ -6,109 +6,121 @@
     <data>
 
         <variable
-            name="photo"
-            type="android.graphics.Bitmap" />
+            name="imageUri"
+            type="String" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:context=".RecipeCreateFragment">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:fontFamily="@font/khula"
-                android:text="@string/create_new_recipe"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size_28sp" />
+                android:layout_margin="@dimen/margin_normal"
+                android:background="@drawable/bg_recipe_create"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_normal"
+                tools:context=".RecipeCreateFragment">
 
-            <ImageView
-                android:id="@+id/photo_loader"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/photo_loader_height"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:background="@android:color/white"
-                android:contentDescription="@null"
-                android:cropToPadding="true"
-                android:padding="@dimen/stroke_size_small"
-                android:scaleType="centerCrop"
-                android:src="@drawable/test"
-                tools:src="@tools:sample/backgrounds/scenic[1]" />
+                <FrameLayout
+                    android:id="@+id/photo_loader"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_recipe_height"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="@dimen/stroke_size_small">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/name_input_layout"
-                style="@style/App.TextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:hint="@string/recipe_title"
-                app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:contentDescription="@null"
+                        android:scaleType="center"
+                        app:isGone="@{imageUri!=null}"
+                        app:srcCompat="@drawable/ic_insert_photo" />
 
-                <com.google.android.material.textfield.TextInputEditText
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        app:isGone="@{imageUri==null}"
+                        app:imageUri="@{imageUri}"/>
+                </FrameLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_input_layout"
+                    style="@style/App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/khula_semibold"
-                    android:inputType="text|textCapWords"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:hint="@string/recipe_title"
+                    app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/description_input_layout"
-                style="@style/App.TextInputLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:hint="@string/recipe_description"
-                app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/khula_semibold"
+                        android:inputType="text|textCapWords"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- fontFamily, textSize for for hint when unfocused and typed text -->
-                <!-- textColor for typed text -->
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/description_input_layout"
+                    style="@style/App.TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:hint="@string/recipe_description"
+                    app:hintTextAppearance="@style/App.TextInputLayout.HintTextAppearance">
+
+                    <!-- fontFamily, textSize for for hint when unfocused and typed text -->
+                    <!-- textColor for typed text -->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/khula_semibold"
+                        android:gravity="top"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:lines="5"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/create_new_recipe"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="@dimen/margin_normal"
                     android:fontFamily="@font/khula_semibold"
-                    android:gravity="top"
-                    android:inputType="textMultiLine|textCapSentences"
-                    android:lines="5"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:text="@string/create_new_recipe"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_18sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textSize="@dimen/text_size_18sp"
+                    app:strokeColor="@color/colorPrimaryDark"
+                    app:strokeWidth="@dimen/stroke_size_small" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/create_new_recipe"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:layout_marginEnd="@dimen/margin_normal"
-                android:fontFamily="@font/khula_semibold"
-                android:paddingTop="@dimen/padding_small"
-                android:paddingBottom="@dimen/padding_small"
-                android:text="@string/submit"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/text_size_18sp"
-                app:strokeColor="@color/colorPrimaryDark"
-                app:strokeWidth="@dimen/stroke_size_small" />
-
+            </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 
 </layout>

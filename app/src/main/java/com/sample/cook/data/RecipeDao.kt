@@ -1,10 +1,7 @@
 package com.sample.cook.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RecipeDao {
@@ -20,7 +17,15 @@ interface RecipeDao {
     @Query("SELECT * FROM recipes WHERE id = :id")
     fun getRecipe(id: String): LiveData<Recipe>
 
-    @Insert
+    // SQLite does not have a boolean data type. Room maps it to an INTEGER column, mapping true to
+    // 1 and false to 0
+    @Query("SELECT * FROM recipes WHERE isFavorite = 1")
+    fun getFavoriteRecipes(): LiveData<List<Recipe>>
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(recipe: Recipe)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(recipe: Recipe)
 
     @Delete
