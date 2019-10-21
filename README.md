@@ -53,7 +53,6 @@ We used [Gson](https://github.com/google/gson) to convert a JSON string to an eq
 <img src="images/package_structure.png">
 </p>
 
-
 ## License
 
 ```
@@ -70,4 +69,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
