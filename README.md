@@ -47,7 +47,11 @@ We used [WorkManager](https://developer.android.com/topic/libraries/architecture
 
 We used [Glide](https://bumptech.github.io/glide) for image loading.
 
-We used [Gson](https://github.com/google/gson) to convert a JSON string to an equivalent Java object..
+We used [Gson](https://github.com/google/gson) to convert a JSON string to an equivalent Java object.
+
+We used [Timber](https://github.com/JakeWharton/timber) for logging.
+
+We used [Android Debug Database](https://github.com/amitshekhariitbhu/Android-Debug-Database) for debugging databases and shared preferences in Android applications.
 
 ## Project Structure
 
