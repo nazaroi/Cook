@@ -4,10 +4,10 @@ Cook Android App
 A kotlin sample app illustrating some Android development best practices with Android Jetpack.
 
 <p align="center">
-<img width="240" src="screenshots/screenshot_detail.png">
-<img width="240" src="screenshots/screenshot_new_recipe.png">
-<img width="240" src="screenshots/screenshot_recipe_list.png">
-<img width="240" src="screenshots/screenshot_settings.png">
+<img width="240" src="images/screenshot_detail.png">
+<img width="240" src="images/screenshot_new_recipe.png">
+<img width="240" src="images/screenshot_recipe_list.png">
+<img width="240" src="images/screenshot_settings.png">
 </p>
 
 # Features
@@ -40,6 +40,13 @@ SharedPreferences.
 
 We used [Navigation component](https://developer.android.com/guide/navigation)
 to simplify into a single Activity app.
+
+# Project Structure
+
+<p align="center">
+<img src="images/package_structure.png">
+</p>
+
 
 We used [Room](https://developer.android.com/jetpack/androidx/releases/room) for recipes.
 
